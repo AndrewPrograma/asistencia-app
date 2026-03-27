@@ -7,8 +7,8 @@ import os
 app = Flask(__name__)
 
 # 📍 CAMBIA ESTO POR TU UBICACIÓN REAL
-LAT_REF = -16.4090
-LON_REF = -71.5375
+LAT_REF = -16.403319347806914
+LON_REF = -71.52522828966532 
 RANGO = 50  # metros
 
 def distancia(lat1, lon1, lat2, lon2):
