@@ -3,13 +3,24 @@ import pandas as pd
 from datetime import datetime
 import math
 import os
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
 
-# 📍 CAMBIA ESTO POR TU UBICACIÓN REAL
-LAT_REF = -16.403319347806914
-LON_REF = -71.52522828966532 
-RANGO = 50  # metros
+# 📍 UBICACIÓN
+LAT_REF = -16.4090
+LON_REF = -71.5375
+RANGO = 50
+
+# 🔐 GOOGLE SHEETS
+scope = ["https://spreadsheets.google.com/feeds",
+         "https://www.googleapis.com/auth/drive"]
+
+creds = ServiceAccountCredentials.from_json_keyfile_name("credenciales.json", scope)
+client = gspread.authorize(creds)
+
+sheet = client.open("Asistencia").sheet1  # nombre exacto de tu hoja
 
 def distancia(lat1, lon1, lat2, lon2):
     R = 6371000
@@ -68,24 +79,21 @@ def home():
         fecha = ahora.strftime("%d/%m/%Y")
         hora = ahora.strftime("%H:%M")
 
-        try:
-            df = pd.read_excel("asistencia.xlsx")
-        except:
-            df = pd.DataFrame(columns=["Nombre","Fecha","Hora","Lat","Lon","Distancia","Estado"])
+        # obtener datos actuales
+        registros = sheet.get_all_values()
 
         # evitar duplicados
-        if ((df["Nombre"] == nombre) & (df["Fecha"] == fecha)).any():
-            return "⚠ Ya registraste hoy"
+        for fila in registros:
+            if fila[0] == nombre and fila[1] == fecha:
+                return "⚠ Ya registraste hoy"
 
-        nuevo = pd.DataFrame([[nombre, fecha, hora, lat, lon, round(dist,2), estado]],
-                             columns=df.columns)
-
-        df = pd.concat([df, nuevo], ignore_index=True)
-        df.to_excel("asistencia.xlsx", index=False)
+        # guardar
+        sheet.append_row([
+            nombre, fecha, hora, lat, lon, round(dist,2), estado
+        ])
 
         return f"✅ {nombre} registrado ({estado})"
 
     return render_template_string(html)
 
-# 🔥 ESTO ES CLAVE PARA RENDER
 app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
