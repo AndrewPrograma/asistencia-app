@@ -1,26 +1,29 @@
 from flask import Flask, request, render_template_string
-import pandas as pd
 from datetime import datetime
 import math
 import os
+import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
 
-# 📍 UBICACIÓN
+# 📍 UBICACIÓN (cámbiala si quieres)
 LAT_REF = -16.4090
 LON_REF = -71.5375
 RANGO = 50
 
-# 🔐 GOOGLE SHEETS
-scope = ["https://spreadsheets.google.com/feeds",
-         "https://www.googleapis.com/auth/drive"]
+# 🔐 GOOGLE SHEETS DESDE VARIABLE DE ENTORNO
+scope = [
+    "https://spreadsheets.google.com/feeds",
+    "https://www.googleapis.com/auth/drive"
+]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name("credenciales.json", scope)
+credenciales_json = json.loads(os.environ["GOOGLE_CREDENTIALS"])
+creds = ServiceAccountCredentials.from_json_keyfile_dict(credenciales_json, scope)
 client = gspread.authorize(creds)
 
-sheet = client.open("Asistencia").sheet1  # nombre exacto de tu hoja
+sheet = client.open("Asistencia").sheet1  # nombre EXACTO de tu hoja
 
 def distancia(lat1, lon1, lat2, lon2):
     R = 6371000
@@ -79,15 +82,13 @@ def home():
         fecha = ahora.strftime("%d/%m/%Y")
         hora = ahora.strftime("%H:%M")
 
-        # obtener datos actuales
         registros = sheet.get_all_values()
 
         # evitar duplicados
         for fila in registros:
-            if fila[0] == nombre and fila[1] == fecha:
+            if fila and fila[0] == nombre and fila[1] == fecha:
                 return "⚠ Ya registraste hoy"
 
-        # guardar
         sheet.append_row([
             nombre, fecha, hora, lat, lon, round(dist,2), estado
         ])
