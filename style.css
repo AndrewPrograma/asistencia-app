@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    overflow:hidden;
+    font-family:Arial;
+}
+
+/* fondo galaxia */
+.webgl{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* tarjeta */
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    
+    background:rgba(255,255,255,0.9);
+    padding:30px;
+    border-radius:12px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.line{
+    height:4px;
+    background:repeating-linear-gradient(
+        45deg,#60a5fa,#60a5fa 10px,#93c5fd 10px,#93c5fd 20px
+    );
+    margin-bottom:20px;
+}
+
+h2{
+    color:#1e3a8a;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #60a5fa;
+}
+
+button{
+    background:#3b82f6;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#mensaje{
+    margin-top:10px;
+    font-weight:bold;
+}
