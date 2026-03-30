@@ -9,8 +9,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 app = Flask(__name__)
 
 # 📍 UBICACIÓN (cámbiala si quieres)
-LAT_REF = -16.4090
-LON_REF = -71.5375
+LAT_REF = -16.365188331949714
+LON_REF = -71.56534757186213
 RANGO = 50
 
 # 🔐 GOOGLE SHEETS DESDE VARIABLE DE ENTORNO
