@@ -1,0 +1,41 @@
+body{
+    font-family:Arial;
+    background:linear-gradient(135deg,#dbeafe,#bfdbfe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2{
+    color:#1e3a8a;
+}
+
+select, button{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+button{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+#mensaje{
+    margin-top:10px;
+    font-weight:bold;
+}
