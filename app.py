@@ -13,37 +13,47 @@ LON_REF = -71.56534757186213
 RANGO = 50
 
 USUARIOS = {
-    "Dennys Patiño Garay": "Talento Humano",
+    "Dennys Eduardo Patiño Garay": "Talento Humano",
     "Mary Jose Cahuana Mamani": "Talento Humano",
     "Sandra Nicolle Yucra Aquije": "Talento Humano",
     "Stefany Estrella Condori Navarro": "Talento Humano",
+    "Josbi Johana Leon Calisaya": "Talento Humano",
+    
+    "Ana Isabel Paccaya Choquehuayta": "Directiva",
+    "Mayker Pablo Aquise Tito": "Directiva",
+    "Jean Paul Phocco Conde": "Asesor",
 
     "Joysy Karla Serrano Mendoza": "Tecnologías de la Información",
     "Patricia Alejandra Condori Miranda": "Tecnologías de la Información",
-    "Roberto Junior": "Tecnologías de la Información",
+    "Andrew Adolfo Chaucha Llacho": "Tecnologías de la Información",
 
     "Diago Andrei Pari Ccolloccollo": "Proyectos",
     "Meliza Briyith Herrera Quispe": "Proyectos",
+    "Orlando José Vera Ancalla": "Proyectos",
 
     "Dariela Ivon Laura Quispe": "Marketing",
-    "Juan Jesús Valentino": "Marketing",
+    "Juan Jesús Valentino Ramos Flores": "Marketing",
     "Junior Gonzalo Totocayo Ccasa": "Marketing",
-    "Luz Daniela": "Marketing",
+    "Luz Daniela Chura Condori": "Marketing",
     "Maricielo Choque Chancolla": "Marketing",
     "Sharon Gabriela Sulla Cocoyori": "Marketing",
+    "Carlos Andre Quispe Abado": "Marketing",
 
     "Cayo Fernando Chañe Cruz": "Relaciones Públicas",
     "Dante Cristian Velasquez Mamani": "Relaciones Públicas",
     "Henry David Chavez Belizario": "Relaciones Públicas",
+    "Samy Nagely Huaraccallo Canaza": "Relaciones Públicas",
 
     "Emilia Melani Huanco Mamani": "Logística",
-    "Huamani Almanacin Jean Kenji": "Logística",
+    "Jean Kenji Huamani Almanacin ": "Logística",
     "Jamil Alexis Mestas Inquilla": "Logística",
     "Jesus Daniel Sopo Arones": "Logística",
     "Sofía Brushesca Lopez Condori": "Logística",
+    "Andree Jamir Casani": "Logística",
 
     "Marco Jhoel Palomino Escobedo": "Seguridad",
-    "Miguel Augusto Cabana Aguilar": "Seguridad"
+    "Miguel Augusto Cabana Aguilar": "Seguridad",
+    "Luz Laura Condori Caceres": "Seguridad"
 }
 
 scope = [
