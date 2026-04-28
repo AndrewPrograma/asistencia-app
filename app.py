@@ -108,7 +108,7 @@ def index():
     resp = google.get("/oauth2/v2/userinfo")
     email = resp.json()["email"]
 
-    if not email.endswith("@tuinstitucion.edu.pe"):
+    if not email.endswith("@unsa.edu.pe"):
         return "❌ Usa tu correo institucional"
 
     return render_template("index.html", email=email)
