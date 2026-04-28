@@ -27,8 +27,49 @@ RANGO = 70
 
 # 👥 ÁREAS POR EMAIL
 USUARIOS = {
-    "andrew@tuinstitucion.edu.pe": "Tecnologías de la Información",
-    # agrega los demás correos aquí
+    "apaccaya@unsa.edu.pe": "Directiva",
+    "maquiseti@unsa.edu.pe": "Directiva",
+
+    "jphocco@unsa.edu.pe": "Asesor",
+
+    "achaucha@unsa.edu.pe": "Tecnologías de la Información",
+    "jserrano@unsa.edu.pe": "Tecnologías de la Información",
+    "pcondorim@unsa.edu.pe": "Tecnologías de la Información",
+    "rccahuay@unsa.edu.pe": "Tecnologías de la Información",
+
+    "overaa@unsa.edu.pe": "Proyectos",
+    "dparicc@unsa.edu.pe": "Proyectos",
+    "mherreraq@unsa.edu.pe": "Proyectos",
+
+    "jleon@unsa.edu.pe": "Talento Humano",
+    "dpatinog@unsa.edu.pe": "Talento Humano",
+    "mcahuanama@unsa.edu.pe": "Talento Humano",
+    "syucara@unsa.edu.pe": "Talento Humano",
+    "scondorina@unsa.edu.pe": "Talento Humano",
+
+    "cquispeab@unsa.edu.pe": "Marketing",
+    "dlauraqu@unsa.edu.pe": "Marketing",
+    "jramosflores@unsa.edu.pe": "Marketing",
+    "jtotocayo@unsa.edu.pe": "Marketing",
+    "lchuraco@unsa.edu.pe": "Marketing",
+    "mchoquechan@unsa.edu.pe": "Marketing",
+    "ssullac@unsa.edu.pe": "Marketing",
+
+    "shuaraccalloc@unsa.edu.pe": "Relaciones Públicas",
+    "cchane@unsa.edu.pe": "Relaciones Públicas",
+    "dvelasquezm@unsa.edu.pe": "Relaciones Públicas",
+    "hchavezbe@unsa.edu.pe": "Relaciones Públicas",
+
+    "azegarracas@unsa.edu.pe": "Logística",
+    "ehuancco@unsa.edu.pe": "Logística",
+    "jhuamani@unsa.edu.pe": "Logística",
+    "jmestasi@unsa.edu.pe": "Logística",
+    "jsopo@unsa.edu.pe": "Logística",
+    "slopeco@unsa.edu.pe": "Logística",
+
+    "lcondoricac@unsa.edu.pe": "Seguridad",
+    "mpalominoe@unsa.edu.pe": "Seguridad",
+    "mcabanaa@unsa.edu.pe": "Seguridad"
 }
 
 # 📊 GOOGLE SHEETS
