@@ -1,34 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <title>Asistencia</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Registro de Asistencia</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
+
 <body>
 
-<h2>Registro de Asistencia</h2>
+    <main class="contenedor">
 
-<button onclick="registrar('Ingreso')">Ingreso</button>
-<button onclick="registrar('Salida')">Salida</button>
+        <div class="tarjeta">
 
-<p id="msg"></p>
+            <h1>Registro de Asistencia</h1>
 
-<script>
-function registrar(tipo) {
-    navigator.geolocation.getCurrentPosition(pos => {
-        fetch("/registrar", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                lat: pos.coords.latitude,
-                lon: pos.coords.longitude,
-                tipo: tipo
-            })
-        })
-        .then(res => res.text())
-        .then(data => document.getElementById("msg").innerText = data)
-    })
-}
-</script>
+            <div class="usuario">
+
+                <h2>
+                    {{ usuario.nombre }}
+                </h2>
+
+                <p>
+                    {{ usuario.email }}
+                </p>
+
+                <span class="area">
+                    {{ usuario.area }}
+                </span>
+
+            </div>
+
+
+            <div class="estado">
+
+                <span id="estadoTexto">
+                    Consultando estado...
+                </span>
+
+            </div>
+
+
+            <div class="botones">
+
+                <button
+                    id="btnIngreso"
+                    class="btn ingreso"
+                    onclick="registrar('Ingreso')">
+
+                    🟢 Registrar ingreso
+
+                </button>
+
+
+                <button
+                    id="btnSalida"
+                    class="btn salida"
+                    onclick="registrar('Salida')">
+
+                    🔴 Registrar salida
+
+                </button>
+
+            </div>
+
+
+            <div id="mensaje"
+                 class="mensaje">
+
+            </div>
+
+
+            <div id="horaRegistro"
+                 class="hora">
+
+            </div>
+
+
+            <a href="/logout"
+               class="logout">
+
+                Cerrar sesión
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
 
 </body>
+
 </html>
