@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, jsonify
 from flask_dance.contrib.google import make_google_blueprint, google
+from werkzeug.middleware.proxy_fix import ProxyFix
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import math
@@ -9,6 +10,11 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(
+    app.wsgi_app,
+    x_proto=1,
+    x_host=1
+)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "cambiar-esta-clave")
 
 # =========================================================
@@ -18,7 +24,8 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", "cambiar-esta-clave")
 blueprint = make_google_blueprint(
     client_id=os.environ.get("GOOGLE_CLIENT_ID"),
     client_secret=os.environ.get("GOOGLE_CLIENT_SECRET"),
-    scope=["openid", "profile", "email"]
+    scope=["openid", "profile", "email"],
+    redirect_url="https://asistencia-app-z8ex.onrender.com/login/google/authorized"
 )
 
 app.register_blueprint(blueprint, url_prefix="/login")
