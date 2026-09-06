@@ -24,7 +24,11 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", "cambiar-esta-clave")
 blueprint = make_google_blueprint(
     client_id=os.environ.get("GOOGLE_CLIENT_ID"),
     client_secret=os.environ.get("GOOGLE_CLIENT_SECRET"),
-    scope=["openid", "profile", "email"],
+    scope=[
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "openid"
+    ]
 )
 
 app.register_blueprint(blueprint, url_prefix="/login")
